@@ -724,6 +724,11 @@ See also the dedicated [document on the use of schema.org for marking up hotels 
     rdfs:comment "The act of producing/preparing food." ;
     rdfs:subClassOf :CreateAction .
 
+:Cooperative a rdfs:Class ;
+    rdfs:label "Cooperative" ;
+    rdfs:comment "An organization that is a joint project of multiple organizations or persons." ;
+    rdfs:subClassOf :Organization .
+
 :Corporation a rdfs:Class ;
     rdfs:label "Corporation" ;
     rdfs:comment "Organization: A business corporation." ;
@@ -5112,6 +5117,12 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
     :rangeIncludes :Date,
         :DateTime .
 
+:companyRegistration a rdf:Property ;
+     rdfs:label "companyRegistration" ;
+     rdfs:comment "The official registration number of a business including the organization that issued it such as Company House or Chamber of Commerce." ;
+     :domainIncludes :Organization ;
+     :rangeIncludes :Certification .
+
 :composer a rdf:Property ;
     rdfs:label "composer" ;
     rdfs:comment "The person or organization who wrote a composition, or who is the composer of a work performed at some event." ;
@@ -5991,6 +6002,12 @@ This property should not be used where the nature of the alignment can be descri
     :rangeIncludes :Date,
         :DateTime .
 
+:extendedAddress a rdf:Property ;
+    rdfs:label "extendedAddress" ;
+    rdfs:comment "An address extension such as an apartment number, C/O or alternative name." ;
+    :domainIncludes :PostalAddress ;
+    :rangeIncludes :Text .
+
 :familyName a rdf:Property ;
     rdfs:label "familyName" ;
     rdfs:comment "Family name. In the U.S., the last name of a Person." ;
@@ -6223,7 +6240,7 @@ Typical unit code(s): MTK for square meter, FTK for square foot, or YDK for squa
 
 :gender a rdf:Property ;
     rdfs:label "gender" ;
-    rdfs:comment "Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of \"Mixed\"." ;
+    rdfs:comment "Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who are not a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of \"Mixed\"." ;
     :domainIncludes :Person ;
     :rangeIncludes :GenderType,
         :Text .
@@ -6883,11 +6900,23 @@ In the context of [[ShippingService]], use the [[ServicePeriod]] format, that co
     :rangeIncludes :DefinedTerm,
         :Text .
 
+:legalAddress a rdf:Property ;
+     rdfs:label "legalAddress" ;
+     rdfs:comment "The legal address of an organization which acts as the officially registered address used for legal and tax purposes. The legal address can be different from the place of operations of a business and other addresses can be part of an organization." ;
+     :domainIncludes :Organization ;
+     :rangeIncludes :PostalAddress .
+
 :legalName a rdf:Property ;
     rdfs:label "legalName" ;
     rdfs:comment "The official name of the organization, e.g. the registered company name." ;
     :domainIncludes :Organization ;
     :rangeIncludes :Text .
+
+:legalRepresentative a rdf:Property ;
+    rdfs:label "legalRepresentative" ;
+    rdfs:comment "One or multiple persons who represent this organization legally such as CEO or sole administrator." ;
+    :domainIncludes :Organization ;
+    :rangeIncludes :Person .
 
 :leiCode a rdf:Property ;
     rdfs:label "leiCode" ;
